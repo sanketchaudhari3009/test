@@ -1,0 +1,8 @@
+start-all.sh
+jps
+hdfs dfs -mkdir /m3
+hdfs dfs -put /home/hadoop/test /m3/
+hdfs dfs -ls /m3/
+yarn jar /home/hadoop/hadoop-3.3.5/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.5.jar wordcount /m3/test /m3_output
+hdfs dfs -ls /m3_output/
+hdfs dfs -cat /m3_output/part-r-00000
